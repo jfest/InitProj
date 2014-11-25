@@ -15,7 +15,7 @@ import org.androidannotations.annotations.EActivity;
 
 
 @EActivity(R.layout.activity_my)
-public class MyActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
