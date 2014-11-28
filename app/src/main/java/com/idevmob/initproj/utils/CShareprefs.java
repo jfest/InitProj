@@ -10,15 +10,11 @@ import android.content.SharedPreferences;
 */
 
 public class CShareprefs {
-
-    private static final String PREF_NAME = AppConstants.PACKAGE_NAME+".PREF_NAME";
-    private static final String KEY_VALUE = AppConstants.PACKAGE_NAME+".KEY_VALUE";
-
     private static CShareprefs sInstance;
     private final SharedPreferences mPref;
 
     private CShareprefs(Context context) {
-        mPref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        mPref = context.getSharedPreferences(AppConstants.PREF_NAME, Context.MODE_PRIVATE);
     }
 
     public static synchronized void initializeInstance(Context context) {
@@ -37,12 +33,12 @@ public class CShareprefs {
 
     public void setValue(long value) {
         mPref.edit()
-                .putLong(KEY_VALUE, value)
+                .putLong(AppConstants.KEY_VALUE, value)
                 .commit();
     }
 
     public long getValue() {
-        return mPref.getLong(KEY_VALUE, 0);
+        return mPref.getLong(AppConstants.KEY_VALUE, 0);
     }
 
     public void remove(String key) {

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">InitProj</string>
+    <string name="app_name">JSPROJ</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="quitterapp">Voulez-vous quitter SPORT D ?</string>
+    <string name="oui">oui</string>
+    <string name="non">non</string>
 
 </resources>

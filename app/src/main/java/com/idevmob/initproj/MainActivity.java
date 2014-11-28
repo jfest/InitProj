@@ -1,5 +1,8 @@
 package com.idevmob.initproj;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -45,6 +48,34 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        FragmentManager fm = getSupportFragmentManager();
+        if(fm.getBackStackEntryCount() == 1) {
+            // DEMANDER SI ON VX QUITTER L'APPLICATION
+            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    switch (which){
+                        case DialogInterface.BUTTON_POSITIVE:
+                            MainActivity.this.finish();
+                            break;
+
+                        case DialogInterface.BUTTON_NEGATIVE:
+                            break;
+                    }
+                }
+            };
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(getResources().getString(R.string.quitterapp)).setPositiveButton(getResources().getString(R.string.oui), dialogClickListener)
+                    .setNegativeButton(getResources().getString(R.string.non), dialogClickListener).show();
+
+        } else {
+            super.onBackPressed();
+        }
     }
 
     /**
